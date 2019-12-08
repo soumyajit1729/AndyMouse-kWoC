@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView_sensor_X_acc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_margin="10dp"
+            android:background="#f39c12"
+            android:padding="20dp"
+            android:hint="x accelerometer"
+            android:text="0.00"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView_sensor_Y_acc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_margin="10dp"
+            android:background= "#f39c12"
+            android:padding="20dp"
+            android:hint="y accelerometer"
+            android:text="0.00"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView_sensor_Z_acc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentTop="false"
+            android:layout_margin="10dp"
+            android:background="#f39c12"
+            android:padding="20dp"
+            android:hint="z accelerometer"
+            android:text="0.00"
+            android:textSize="14sp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp">
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#57d272"
+                android:onClick="onStart"
+                android:padding="20dp"
+                android:text="START"
+                android:textSize="13sp" />
+
+
+            <Button
+                android:id="@+id/button_stop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#e94f64"
+                android:onClick="onStop"
+                android:padding="20dp"
+                android:text="STOP"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#00BCD4"
+                android:onClick="leftClick"
+                android:padding="20dp"
+                android:text="back"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/button_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="false"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="#00BCD4"
+                android:onClick="rightClick"
+                android:padding="20dp"
+                android:text="next"
+                android:textSize="13sp" />
+
+
+
+
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/ip_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="left"
+            android:hint="Enter IP Address" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
