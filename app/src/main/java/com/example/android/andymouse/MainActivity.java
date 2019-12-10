@@ -119,12 +119,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-    }
-
-   public void onStart(View view)
-    {
-        super.onStart();
         /* Get a SensorManager instance */
 
         sm = (SensorManager)getSystemService(SENSOR_SERVICE);
@@ -137,6 +131,13 @@ public class MainActivity extends Activity {
 
 
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
+        
+    }
+
+   public void onStart(View view)
+    {
+        super.onStart();
+
         if(list.size()>0){
             sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_NORMAL*(100000/3));
         }else{
