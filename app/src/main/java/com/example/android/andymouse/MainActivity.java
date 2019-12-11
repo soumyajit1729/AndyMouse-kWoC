@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +41,7 @@ public class MainActivity extends Activity {
     SensorManager sm = null;
     //int count=0;
     int on_bit=0;
-    Boolean to_send=false;
+    boolean to_send,notConnected=false;
     TextView textView_sensor_X_acc;
     TextView textView_sensor_Y_acc;
     TextView textView_sensor_Z_acc;
@@ -79,11 +80,16 @@ public class MainActivity extends Activity {
                 textView_sensor_Z_gyro.setText(""+values2[2]);
             }*/
             System.out.println(to_send);
+
+
+            if (notConnected)
+                Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
+            notConnected=false;
+
             if(to_send)
            {
                send_loop();
            }
-
 
 
         }
@@ -131,7 +137,7 @@ public class MainActivity extends Activity {
 
 
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
-        
+
     }
 
    public void onStart(View view)
@@ -150,6 +156,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
         }*/
         to_send=true;
+        notConnected=false;
         System.out.println(SensorManager.SENSOR_DELAY_NORMAL);
 
     }
@@ -161,6 +168,7 @@ public class MainActivity extends Activity {
         }
         //System.out.println(to_send);
         to_send=false;
+        notConnected=false;
         //System.out.println(to_send);
         super.onStop();
     }
@@ -171,6 +179,7 @@ public class MainActivity extends Activity {
         }
         System.out.println(to_send);
         to_send=false;
+        notConnected=false;
         System.out.println(to_send);
         super.onStop();
     }
@@ -178,27 +187,6 @@ public class MainActivity extends Activity {
 
     //send sensor data
 
-    public boolean checkNetworkConnection() {
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        boolean isConnected = false;
-        if (networkInfo != null && (isConnected = networkInfo.isConnected())) {
-            // show "Connected" & type of network "WIFI or MOBILE"
-
-
-            System.out.println("is connected");
-
-
-        } else {
-            // show "Not Connected"
-
-            System.out.println("is not connected");
-        }
-
-        return isConnected;
-    }
 
     private class HTTPAsyncTask extends AsyncTask<String, Void, String> {
         @Override
@@ -206,12 +194,18 @@ public class MainActivity extends Activity {
             // params comes from the execute() call: params[0] is the url.
             try {
                 try {
-                    return HttpPost(urls[0]);
+                    String response = HttpPost(urls[0]);      //if phone is not connected to sensor.py then this statement will throw an error.
+                    notConnected=false;
+                    return response;
                 } catch (JSONException e) {
+                    to_send=false;
+                    notConnected=true;
                     e.printStackTrace();
                     return "Error!";
                 }
             } catch (IOException e) {
+                to_send=false;
+                notConnected=true;
                 return "Unable to retrieve web page. URL may be invalid.";
             }
         }
@@ -251,34 +245,22 @@ public class MainActivity extends Activity {
         Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         // perform HTTP POST request
         String ip=ip_address.getText().toString();
-        if(checkNetworkConnection()) {
             //new HTTPAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
             //new HTTPAsyncTask().execute(ip);//"http://10.146.121.148:8080/sensor";
            // new HTTPAsyncTask().execute("http://10.146.85.93:8080/sensor");
             //new HTTPAsyncTask().execute("http://10.146.94.129:8080/sensor");
+
             new HTTPAsyncTask().execute("http://"+ip+":8080/sensor");
-
-
-        }
-        else
-            Toast.makeText(this, "Not Connected!", Toast.LENGTH_SHORT).show();
-
     }
-    public void send_loop()
-    {
-       // Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+    public void send_loop() {
+        // Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         // perform HTTP POST request
-        String ip=ip_address.getText().toString();
-        if(checkNetworkConnection()) {
-            //new HTTPAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
-           // new HTTPAsyncTask().execute("http://10.146.94.129:8080/sensor");
-            new HTTPAsyncTask().execute("http://"+ip+":8080/sensor");//"http://10.145.170.91:8080/sensor";
-        }
-        else
-            Toast.makeText(this, "Not Connected!", Toast.LENGTH_SHORT).show();
+        String ip = ip_address.getText().toString();
+        //new HTTPAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
+        // new HTTPAsyncTask().execute("http://10.146.94.129:8080/sensor");
+        new HTTPAsyncTask().execute("http://" + ip + ":8080/sensor");//"http://10.145.170.91:8080/sensor";
 
     }
-
     private JSONObject buildJsonObject() throws JSONException {
 
         JSONObject jsonObject = new JSONObject();
@@ -300,11 +282,8 @@ public class MainActivity extends Activity {
         OutputStream os = conn.getOutputStream();
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
         writer.write(jsonObject.toString());
-        Log.i(MainActivity.class.toString(), jsonObject.toString());
         writer.flush();
         writer.close();
         os.close();
     }
-
-
 }
