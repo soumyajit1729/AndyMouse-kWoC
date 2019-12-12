@@ -43,6 +43,8 @@ public class MainActivity extends Activity {
     SensorManager sm = null;
     //int count=0;
     int on_bit=0;
+    int stop = -10;
+    int start = 10;
     long measure_time;
     boolean to_send,notConnected=false;
     TextView textView_sensor_X_acc;
@@ -149,6 +151,8 @@ public class MainActivity extends Activity {
     {
         super.onStart();
 
+        on_bit=start;
+
         if(list.size()>0){
             sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
         }else{
@@ -168,6 +172,7 @@ public class MainActivity extends Activity {
 
 
     public void onStop(View view) {
+        on_bit=stop;
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
@@ -179,6 +184,7 @@ public class MainActivity extends Activity {
     }
     @Override
     protected void onStop() {
+        on_bit=stop;
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
