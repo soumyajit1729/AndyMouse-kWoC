@@ -34,7 +34,7 @@ def addone():
 			pyautogui.moveRel(-50*pow(float(sensorData[0]['x_tilt']),3),
 				-50*pow(float(sensorData[0]['y_tilt']),3),duration = 0.01)
 	except:
-		pass
+		pyautogui.FAILSAFE = False
 	
 	print("post request")
 	return {'sensorData' : sensorData[0]}
