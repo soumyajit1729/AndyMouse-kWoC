@@ -1,4 +1,4 @@
-#Wed Dec 11 15:04:21 IST 2019
-base.0=/home/akash/AndyMouse-kWoC/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Fri Dec 13 00:42:09 IST 2019
+base.0=F\:\\opensource\\AndyMouse-kWoC\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
