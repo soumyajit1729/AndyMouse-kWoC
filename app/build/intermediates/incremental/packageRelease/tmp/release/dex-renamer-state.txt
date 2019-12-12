@@ -1,0 +1,4 @@
+#Thu Dec 12 17:22:24 IST 2019
+base.0=/home/akash/AndyMouse-kWoC/app/build/intermediates/dex/release/mergeDexRelease/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
