@@ -8,6 +8,7 @@ import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,19 +31,19 @@ public class MainActivity extends Activity {
     //extract data from sensors
     SensorManager sensorManager = null;
     //int count=0;
-    int on_bit=0;
+    int on_bit = 0;
     int stop = -10;
     int start = 10;
     long measure_time;
-    boolean to_send,notConnected=false;
-    TextView textView_sensor_X_acc;
-    TextView textView_sensor_Y_acc;
-    TextView textView_sensor_Z_acc;
+    boolean to_send, notConnected = false;
+    TextView textView_sensor_X_acc, textView_sensor_Y_acc, textView_sensor_Z_acc;
+
     //TextView textView_sensor_X_gyro;
     // TextView textView_sensor_Y_gyro;
     // TextView textView_sensor_Z_gyro;
     EditText ip_address;
     List list, list2;
+    Button btnStart, btnStop, btnLeftClick, btnRightClick;
 
 
     @Override
@@ -52,20 +53,120 @@ public class MainActivity extends Activity {
 
         initialise();
 
+        /*Setting the behaviour for the start button*/
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                on_bit = start;
+                if (list.size() > 0) {
+                    sensorManager.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
+                } else {
+                    Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
+                }
+               /* list2 = sm.getSensorList(Sensor.TYPE_GYROSCOPE);
+                if(list2.size()>0){
+                    sm.registerListener(sel, (Sensor) list2.get(0), SensorManager.SENSOR_DELAY_NORMAL);
+                }else{
+                    Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
+                }*/
+                to_send = true;
+                notConnected = false;
+                System.out.println(SensorManager.SENSOR_DELAY_NORMAL);
+            }
+        });
+
+        /*Setting the behaviour for the stop button*/
+        btnStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                on_bit = stop;
+                if (list.size() > 0) {
+                    sensorManager.unregisterListener(sel);
+                }
+                //System.out.println(to_send);
+                to_send = false;
+                notConnected = false;
+                //System.out.println(to_send);
+                // super.onStop();
+            }
+        });
+
+        /*Setting the behaviour for the left click button*/
+        btnLeftClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                on_bit = 10000;
+                try {
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                send_loop();
+
+                try {
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                on_bit = 0;
+            }
+        });
+
+        btnRightClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                on_bit = -1;
+                try {
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                send_loop();
+
+                try {
+                    TimeUnit.MILLISECONDS.sleep(250);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                on_bit = 0;
+            }
+        });
+
     }
 
-    //    This method initializes the class variables
+    /*Define what happens when the onStop() call is executed*/
+    @Override
+    protected void onStop() {
+        on_bit = stop;
+        if (list.size() > 0) {
+            sensorManager.unregisterListener(sel);
+        }
+        System.out.println(to_send);
+        to_send = false;
+        notConnected = false;
+        System.out.println(to_send);
+        super.onStop();
+    }
+
+    /*This method initializes the class variables*/
     private void initialise() {
 
-        /* Get a SensorManager instance */
+        /* 1.  Get a SensorManager instance */
+
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         list = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
 
         /* initialize the views */
-        textView_sensor_X_acc =  findViewById(R.id.textView_sensor_X_acc);
-        textView_sensor_Y_acc =  findViewById(R.id.textView_sensor_Y_acc);
-        textView_sensor_Z_acc =  findViewById(R.id.textView_sensor_Z_acc);
+        textView_sensor_X_acc = findViewById(R.id.textView_sensor_X_acc);
+        textView_sensor_Y_acc = findViewById(R.id.textView_sensor_Y_acc);
+        textView_sensor_Z_acc = findViewById(R.id.textView_sensor_Z_acc);
+        btnStart = findViewById(R.id.button_start);
+        btnStop = findViewById(R.id.button_stop);
         ip_address = findViewById(R.id.ip_addr);
+        btnLeftClick = findViewById(R.id.button_left);
+        btnRightClick = findViewById(R.id.button_right);
 
     }
 
@@ -116,80 +217,10 @@ public class MainActivity extends Activity {
     };
 
 
-    public void rightClick(View view) throws java.lang.InterruptedException {
-
-        on_bit = -1;
-        TimeUnit.MILLISECONDS.sleep(250);
-
-        send_loop();
-
-        TimeUnit.MILLISECONDS.sleep(250);
-        on_bit = 0;
-
-    }
-
-    public void leftClick(View view) throws java.lang.InterruptedException {
-        on_bit = 10000;
-        TimeUnit.MILLISECONDS.sleep(250);
-
-        send_loop();
-
-        TimeUnit.MILLISECONDS.sleep(250);
-        on_bit = 0;
-
-    }
-
-
-    public void onStart(View view) {
-        super.onStart();
-
-        on_bit=start;
-
-        if(list.size()>0){
-            sensorManager.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
-        }else{
-            Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
-        }
-       /* list2 = sm.getSensorList(Sensor.TYPE_GYROSCOPE);
-        if(list2.size()>0){
-            sm.registerListener(sel, (Sensor) list2.get(0), SensorManager.SENSOR_DELAY_NORMAL);
-        }else{
-            Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
-        }*/
-        to_send = true;
-        notConnected = false;
-        System.out.println(SensorManager.SENSOR_DELAY_NORMAL);
-
-    }
-
-
-    public void onStop(View view) {
-        on_bit=stop;
-        if(list.size()>0){
-            sensorManager.unregisterListener(sel);
-        }
-        //System.out.println(to_send);
-        to_send = false;
-        notConnected = false;
-        //System.out.println(to_send);
-//        super.onStop();
-    }
-
-    @Override
-    protected void onStop() {
-        on_bit=stop;
-        if(list.size()>0){
-            sensorManager.unregisterListener(sel);
-        }
-        System.out.println(to_send);
-        to_send=false;
-        notConnected=false;
-        System.out.println(to_send);
-        super.onStop();
-    }
-
-
-    //send sensor data
+    /*
+    * This areas marks the beginning of the section where we start sending the data to the rest API server
+    * from the REST API client (Android Device)
+    */
 
 
     private class HTTPAsyncTask extends AsyncTask<String, Void, String> {

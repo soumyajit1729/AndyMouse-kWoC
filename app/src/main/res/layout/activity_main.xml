@@ -73,7 +73,6 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#57d272"
-                android:onClick="onStart"
                 android:padding="20dp"
                 android:text="START"
                 android:textSize="13sp" />
@@ -89,7 +88,6 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="#e94f64"
-                android:onClick="onStop"
                 android:padding="20dp"
                 android:text="STOP"
                 android:textSize="15sp" />
