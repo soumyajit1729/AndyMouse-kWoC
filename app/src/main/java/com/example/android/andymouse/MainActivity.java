@@ -34,6 +34,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.System.currentTimeMillis;
+
 
 public class MainActivity extends Activity {
 
@@ -41,6 +43,9 @@ public class MainActivity extends Activity {
     SensorManager sm = null;
     //int count=0;
     int on_bit=0;
+    int stop = -10;
+    int start = 10;
+    long measure_time;
     boolean to_send,notConnected=false;
     TextView textView_sensor_X_acc;
     TextView textView_sensor_Y_acc;
@@ -138,14 +143,18 @@ public class MainActivity extends Activity {
 
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
 
+        measure_time=currentTimeMillis();
+
     }
 
    public void onStart(View view)
     {
         super.onStart();
 
+        on_bit=start;
+
         if(list.size()>0){
-            sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_NORMAL*(100000/3));
+            sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
         }else{
             Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
         }
@@ -157,12 +166,13 @@ public class MainActivity extends Activity {
         }*/
         to_send=true;
         notConnected=false;
-        System.out.println(SensorManager.SENSOR_DELAY_NORMAL);
+        System.out.println(SensorManager.SENSOR_DELAY_GAME);
 
     }
 
 
     public void onStop(View view) {
+        on_bit=stop;
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
@@ -174,6 +184,7 @@ public class MainActivity extends Activity {
     }
     @Override
     protected void onStop() {
+        on_bit=stop;
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
