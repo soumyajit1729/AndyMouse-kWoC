@@ -38,9 +38,6 @@ public class MainActivity extends Activity {
     boolean to_send, notConnected = false;
     TextView textView_sensor_X_acc, textView_sensor_Y_acc, textView_sensor_Z_acc;
 
-    //TextView textView_sensor_X_gyro;
-    // TextView textView_sensor_Y_gyro;
-    // TextView textView_sensor_Z_gyro;
     EditText ip_address;
     List list, list2;
     Button btnStart, btnStop, btnLeftClick, btnRightClick;
@@ -63,12 +60,7 @@ public class MainActivity extends Activity {
                 } else {
                     Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
                 }
-               /* list2 = sm.getSensorList(Sensor.TYPE_GYROSCOPE);
-                if(list2.size()>0){
-                    sm.registerListener(sel, (Sensor) list2.get(0), SensorManager.SENSOR_DELAY_NORMAL);
-                }else{
-                    Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
-                }*/
+
                 to_send = true;
                 notConnected = false;
                 System.out.println(SensorManager.SENSOR_DELAY_NORMAL);
@@ -171,6 +163,9 @@ public class MainActivity extends Activity {
     }
 
 
+    /*
+    * Create a SensorEventLister instance to show the changes in the values of the necessary textViews
+    */
     SensorEventListener sel = new SensorEventListener() {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
@@ -181,31 +176,18 @@ public class MainActivity extends Activity {
             if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 float[] values = event.values;
                 //round up to 2 decimal places
-                /*values[0]=Math.round(values[0] * 100.0f) / 100.0f;
-                values[1]=Math.round(values[1] * 100.0f) / 100.0f;
-                values[2]=Math.round(values[2] * 100.0f) / 100.0f;*/
-
 
                 textView_sensor_X_acc.setText("" + (values[0] / values[2]));
                 textView_sensor_Y_acc.setText("" + (values[1] / values[2]));
                 textView_sensor_Z_acc.setText("" + values[2]);
             }
-            /*if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
-                float[] values2 = event.values;
-                //round up to 2 decimal places
-                values2[0]=Math.round(values2[0] * 100.0f) / 100.0f;
-                values2[1]=Math.round(values2[1] * 100.0f) / 100.0f;
-                values2[2]=Math.round(values2[2] * 100.0f) / 100.0f;
 
-                textView_sensor_X_gyro.setText(""+values2[0]);
-                textView_sensor_Y_gyro.setText(""+values2[1]);
-                textView_sensor_Z_gyro.setText(""+values2[2]);
-            }*/
             System.out.println(to_send);
 
-
-            if (notConnected)
+            if (notConnected) {
                 Toast.makeText(MainActivity.this, "Not Connected", Toast.LENGTH_SHORT).show();
+            }
+
             notConnected = false;
 
             if (to_send) {
@@ -218,8 +200,8 @@ public class MainActivity extends Activity {
 
 
     /*
-    * This areas marks the beginning of the section where we start sending the data to the rest API server
-    * from the REST API client (Android Device)
+    * This areas marks the beginning of the section where we start sending the data
+    * to the rest API server(laptop) from the REST API client(Android Device)
     */
 
 
@@ -229,7 +211,7 @@ public class MainActivity extends Activity {
             // params comes from the execute() call: params[0] is the url.
             try {
                 try {
-                    String response = HttpPost(urls[0]);      //if phone is not connected to sensor.py then this statement will throw an error.
+                    String response = HttpPost(urls[0]);  //if phone is not connected to sensor.py then this statement will throw an error.
                     notConnected = false;
                     return response;
                 } catch (JSONException e) {
