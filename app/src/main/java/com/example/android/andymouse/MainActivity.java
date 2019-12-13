@@ -13,9 +13,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,15 +48,16 @@ public class MainActivity extends Activity {
     int on_bit=0;
     int stop = -10;
     int start = 10;
-    long measure_time;
+    double sensitivity=25;
     boolean to_send,notConnected=false;
     TextView textView_sensor_X_acc;
     TextView textView_sensor_Y_acc;
-    TextView textView_sensor_Z_acc;
+    SeekBar seekBar;
     //TextView textView_sensor_X_gyro;
    // TextView textView_sensor_Y_gyro;
    // TextView textView_sensor_Z_gyro;
     EditText ip_address;
+    Button leftclick,rightclick;
     List list,list2;
 
     SensorEventListener sel = new SensorEventListener(){
@@ -63,15 +67,10 @@ public class MainActivity extends Activity {
 
             if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 float[] values = event.values;
-                //round up to 2 decimal places
-                /*values[0]=Math.round(values[0] * 100.0f) / 100.0f;
-                values[1]=Math.round(values[1] * 100.0f) / 100.0f;
-                values[2]=Math.round(values[2] * 100.0f) / 100.0f;*/
 
 
-                textView_sensor_X_acc.setText("" + (values[0]/values[2]));
-                textView_sensor_Y_acc.setText("" + (values[1]/values[2]));
-                textView_sensor_Z_acc.setText("" + values[2]);
+                textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(values[0] / values[2]));
+                textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(values[1] / values[2]));
             }
             /*if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
                 float[] values2 = event.values;
@@ -101,11 +100,10 @@ public class MainActivity extends Activity {
     };
 
 
-    public void rightClick(View view) throws java.lang.InterruptedException
+    public void nextbutton(View view) throws java.lang.InterruptedException
     {
 
         on_bit=-1;
-        TimeUnit.MILLISECONDS.sleep(250);
 
         send_loop();
 
@@ -113,16 +111,63 @@ public class MainActivity extends Activity {
         on_bit=0;
 
     }
-    public void leftClick(View view) throws java.lang.InterruptedException
+    public void previousbutton(View view) throws java.lang.InterruptedException
     {
         on_bit=10000;
-        TimeUnit.MILLISECONDS.sleep(250);
 
         send_loop();
 
         TimeUnit.MILLISECONDS.sleep(250);
         on_bit=0;
 
+    }
+
+    public void rightclick(View view)throws java.lang.InterruptedException {
+
+        on_bit=2;
+
+        send_loop();
+
+        TimeUnit.MILLISECONDS.sleep(250);
+        on_bit=0;
+
+
+    }
+
+    public void leftclick(View view)throws java.lang.InterruptedException {
+
+        on_bit=3;
+
+        send_loop();
+
+        TimeUnit.MILLISECONDS.sleep(250);
+        on_bit=0;
+
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+
+        int action,keycode;
+
+        action = event.getAction();
+        keycode = event.getKeyCode();
+
+        switch (keycode) {
+
+            case KeyEvent.KEYCODE_VOLUME_UP:
+                if (action == KeyEvent.ACTION_UP) {
+                    leftclick.performClick();
+                }
+                return true;
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                if (action == KeyEvent.ACTION_UP) {
+                    rightclick.performClick();
+                }
+                return true;
+            default:
+                return super.dispatchKeyEvent(event);
+        }
     }
 
     @Override
@@ -136,14 +181,35 @@ public class MainActivity extends Activity {
 
         textView_sensor_X_acc = (TextView)findViewById(R.id.textView_sensor_X_acc);
         textView_sensor_Y_acc= (TextView)findViewById(R.id.textView_sensor_Y_acc);
-        textView_sensor_Z_acc = (TextView)findViewById(R.id.textView_sensor_Z_acc);
 
         ip_address=(EditText)findViewById(R.id.ip_addr);
+
+        leftclick = findViewById(R.id.button_left);
+        rightclick = findViewById(R.id.button_right);
 
 
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
 
-        measure_time=currentTimeMillis();
+        seekBar = findViewById(R.id.seekBar);
+        seekBar.setProgress(25);
+        seekBar.setOnSeekBarChangeListener(
+                new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        sensitivity=progress*0.99+1;
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                }
+        );
 
     }
 
@@ -154,7 +220,7 @@ public class MainActivity extends Activity {
         on_bit=start;
 
         if(list.size()>0){
-            sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
+            sm.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_GAME);
         }else{
             Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
         }
@@ -173,6 +239,8 @@ public class MainActivity extends Activity {
 
     public void onStop(View view) {
         on_bit=stop;
+        textView_sensor_X_acc.setText(0.0 + "0");
+        textView_sensor_Y_acc.setText(0.0 + "0");
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
@@ -185,6 +253,8 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         on_bit=stop;
+        textView_sensor_X_acc.setText(0.0 + "0");
+        textView_sensor_Y_acc.setText(0.0 + "0");
         if(list.size()>0){
             sm.unregisterListener(sel);
         }
@@ -279,6 +349,7 @@ public class MainActivity extends Activity {
         jsonObject.accumulate("y_tilt",  textView_sensor_Y_acc.getText().toString());
        // jsonObject.accumulate("zacc",  textView_sensor_Z_acc.getText().toString());
         jsonObject.accumulate("arrow", on_bit);
+        jsonObject.accumulate("sensitivity", sensitivity);
        // jsonObject.accumulate("left",  on_bit);
        // jsonObject.accumulate("zgyro",  textView_sensor_Z_gyro.getText().toString());
 

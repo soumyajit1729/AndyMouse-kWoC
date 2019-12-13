@@ -1,151 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f1f1"
-    tools:context=".MainActivity" >
+    android:background="@drawable/hello"
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/ip_addr"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="@string/ip_address"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="#FFF301"
+        android:textColorHint="#F3DA56"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_sensor_X_acc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="84dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="@string/zero"
+        android:textColor="#FE1415"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/textView_sensor_Y_acc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textView_sensor_Y_acc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:text="@string/zero"
+        android:textColor="#FD1416"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView_sensor_X_acc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_sensor_X_acc" />
 
+    <TextView
+        android:id="@+id/xtilt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/x_tilt"
+        android:textColor="#FD1515"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_sensor_X_acc"
+        app:layout_constraintEnd_toEndOf="@+id/textView_sensor_X_acc"
+        app:layout_constraintStart_toStartOf="@+id/textView_sensor_X_acc" />
 
-        <TextView
-            android:id="@+id/textView_sensor_X_acc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_margin="10dp"
-            android:background="#f39c12"
-            android:padding="20dp"
-            android:hint="x accelerometer"
-            android:text="0.00"
-            android:textSize="14sp" />
+    <TextView
+        android:id="@+id/ytilt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/y_tilt"
+        android:textColor="#FE1415"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_sensor_Y_acc"
+        app:layout_constraintEnd_toEndOf="@+id/textView_sensor_Y_acc"
+        app:layout_constraintStart_toStartOf="@+id/textView_sensor_Y_acc" />
 
-        <TextView
-            android:id="@+id/textView_sensor_Y_acc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_margin="10dp"
-            android:background= "#f39c12"
-            android:padding="20dp"
-            android:hint="y accelerometer"
-            android:text="0.00"
-            android:textSize="14sp" />
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button"
+        android:onClick="previousbutton"
+        android:text="@string/previous"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_left"
+        app:layout_constraintEnd_toStartOf="@+id/button_start"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView_sensor_Z_acc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentTop="false"
-            android:layout_margin="10dp"
-            android:background="#f39c12"
-            android:padding="20dp"
-            android:hint="z accelerometer"
-            android:text="0.00"
-            android:textSize="14sp" />
+    <Button
+        android:id="@+id/button_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/button_shape"
+        android:onClick="onStart"
+        android:text="@string/start"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_previous"
+        app:layout_constraintEnd_toStartOf="@+id/button_stop"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_previous" />
 
+    <Button
+        android:id="@+id/button_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/button_shape1"
+        android:onClick="onStop"
+        android:text="@string/stop"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_start"
+        app:layout_constraintEnd_toStartOf="@+id/button_next"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_start" />
 
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/button"
+        android:onClick="nextbutton"
+        android:text="@string/next"
+        android:textColor="#000000"
+        android:textColorLink="#00FF006F"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_stop" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="30dp">
+    <Button
+        android:id="@+id/button_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/button_shape2"
+        android:onClick="rightclick"
+        android:text="@string/right_click"
+        android:textColor="#000000"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_left" />
 
-            <Button
-                android:id="@+id/button_start"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#57d272"
-                android:onClick="onStart"
-                android:padding="20dp"
-                android:text="START"
-                android:textSize="13sp" />
+    <Button
+        android:id="@+id/button_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button_shape2"
+        android:onClick="leftclick"
+        android:text="@string/left_click"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/ip_addr"
+        app:layout_constraintEnd_toStartOf="@+id/button_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:progress="25"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            <Button
-                android:id="@+id/button_stop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#e94f64"
-                android:onClick="onStop"
-                android:padding="20dp"
-                android:text="STOP"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/button_left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#00BCD4"
-                android:onClick="leftClick"
-                android:padding="20dp"
-                android:text="back"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/button_right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="false"
-                android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#00BCD4"
-                android:onClick="rightClick"
-                android:padding="20dp"
-                android:text="next"
-                android:textSize="13sp" />
-
-
-
-
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/ip_addr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="left"
-            android:hint="Enter IP Address" />
-
-
-    </LinearLayout>
-
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
