@@ -30,8 +30,11 @@ public class MainActivity extends Activity {
     //extract data from sensors
     SensorManager sensorManager = null;
     //int count=0;
-    int on_bit = 0;
-    boolean to_send, notConnected = false;
+    int on_bit=0;
+    int stop = -10;
+    int start = 10;
+    long measure_time;
+    boolean to_send,notConnected=false;
     TextView textView_sensor_X_acc;
     TextView textView_sensor_Y_acc;
     TextView textView_sensor_Z_acc;
@@ -140,14 +143,16 @@ public class MainActivity extends Activity {
     public void onStart(View view) {
         super.onStart();
 
-        if (list.size() > 0) {
-            sensorManager.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_NORMAL * (100000 / 3));
-        } else {
+        on_bit=start;
+
+        if(list.size()>0){
+            sensorManager.registerListener(sel, (Sensor) list.get(0), SensorManager.SENSOR_DELAY_FASTEST);
+        }else{
             Toast.makeText(getBaseContext(), "Error: No Accelerometer.", Toast.LENGTH_LONG).show();
         }
-       /* list2 = sensorManager.getSensorList(Sensor.TYPE_GYROSCOPE);
+       /* list2 = sm.getSensorList(Sensor.TYPE_GYROSCOPE);
         if(list2.size()>0){
-            sensorManager.registerListener(sel, (Sensor) list2.get(0), SensorManager.SENSOR_DELAY_NORMAL);
+            sm.registerListener(sel, (Sensor) list2.get(0), SensorManager.SENSOR_DELAY_NORMAL);
         }else{
             Toast.makeText(getBaseContext(), "Error: No Gyroscope.", Toast.LENGTH_LONG).show();
         }*/
@@ -159,7 +164,8 @@ public class MainActivity extends Activity {
 
 
     public void onStop(View view) {
-        if (list.size() > 0) {
+        on_bit=stop;
+        if(list.size()>0){
             sensorManager.unregisterListener(sel);
         }
         //System.out.println(to_send);
@@ -171,12 +177,13 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onStop() {
-        if (list.size() > 0) {
+        on_bit=stop;
+        if(list.size()>0){
             sensorManager.unregisterListener(sel);
         }
         System.out.println(to_send);
-        to_send = false;
-        notConnected = false;
+        to_send=false;
+        notConnected=false;
         System.out.println(to_send);
         super.onStop();
     }
