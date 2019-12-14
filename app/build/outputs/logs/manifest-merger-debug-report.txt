@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /home/akash/.gradle/caches/transforms-2/files-2.1/697f71c0c12135256cbfe98df498a7e4/appcompat-1.0.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/akash/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/akash/.gradle/caches/transforms-2/files-2.1/4f680f5cab482b7966fa9c805ac0cb70/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -31,25 +31,25 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/akash/.gradle/ca
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/akash/.gradle/caches/transforms-2/files-2.1/733fc1d306cee2c05d3e1fb0b7527020/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/akash/.gradle/caches/transforms-2/files-2.1/fdd65d8b6066fd289a68b42931dc03a2/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/akash/.gradle/caches/transforms-2/files-2.1/3a992d8307f21a8f15eb649383ba6a6a/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
-INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
 	package
 		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:3:5-44
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-23:12
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:1-24:12
 		INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:5:5-19:19
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:5:5-20:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/akash/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/akash/.gradle/caches/transforms-2/files-2.1/3ec6fa8458ddbe732478393a9f9e6c77/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.core:core:1.0.1] /home/akash/.gradle/caches/transforms-2/files-2.1/8f8ab13dc8f4e84e14a8bb3d9ac92bc4/core-1.0.1/AndroidManifest.xml:22:5-89
@@ -59,39 +59,41 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/akash
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.1] /home/akash/.gradle/caches/transforms-2/files-2.1/8f8ab13dc8f4e84e14a8bb3d9ac92bc4/core-1.0.1/AndroidManifest.xml:22:18-86
 	android:supportsRtl
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:9:9-54
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:8:9-43
 	android:allowBackup
 		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:11:9-40
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:12:9-40
+	android:usesCleartextTraffic
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:7:9-44
 activity#com.example.android.andymouse.MainActivity
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:12:9-18:20
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:13:9-19:20
 	android:name
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:12:19-47
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:13:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:13:13-17:29
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:14:13-18:29
 action#android.intent.action.MAIN
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:14:17-69
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:15:17-69
 	android:name
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:14:25-66
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:15:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:16:17-77
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:17:17-77
 	android:name
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:16:27-74
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:17:27-74
 uses-permission#android.permission.INTERNET
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:5-67
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:5-67
 	android:name
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:22-64
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:5-79
+ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:22-76
+		ADDED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:22:22-76
 uses-sdk
 INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml
