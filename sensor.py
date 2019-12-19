@@ -53,7 +53,7 @@ def addone():
             if (abs(float(sensorData[0]['y_tilt'])) > 0.1 or abs(float(sensorData[0]['x_tilt'])) > 0.1) and (not stop) :
                 #changed the parameters and  set the duration to 0 to get instant response without any delay
                     pyautogui.moveRel(-1*sensorData[0]['sensitivity']*float(sensorData[0]['x_tilt']),
-                                      sensorData[0]['sensitivity']*float(sensorData[0]['y_tilt']),
+                                      -1*sensorData[0]['sensitivity']*float(sensorData[0]['y_tilt']),
                                       duration = 0)
     except:
             pyautogui.FAILSAFE=False
