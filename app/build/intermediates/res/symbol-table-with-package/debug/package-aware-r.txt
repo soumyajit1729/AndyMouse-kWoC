@@ -636,6 +636,8 @@ drawable button_shape
 drawable button_shape1
 drawable button_shape2
 drawable hello
+drawable i13
+drawable i13_rs
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable notification_action_background
@@ -653,6 +655,7 @@ drawable notify_panel_notification_icon_bg
 drawable picka
 drawable pikachu
 drawable pikachuf
+drawable title
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -705,6 +708,7 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id constraintLayout
 id content
 id contentPanel
 id custom
@@ -731,6 +735,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id ip_addr

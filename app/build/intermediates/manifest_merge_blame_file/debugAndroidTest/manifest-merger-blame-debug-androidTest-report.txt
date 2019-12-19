@@ -3,31 +3,31 @@
 3    package="com.example.android.andymouse.test" >
 4
 5    <uses-sdk
-5-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:5:5-74
+5-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:5:5-74
 6        android:minSdkVersion="15"
-6-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:5:15-41
+6-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:5:15-41
 7        android:targetSdkVersion="29" />
-7-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:5:42-71
+7-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:5:42-71
 8
 9    <instrumentation
-9-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:11:5-15:79
+9-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:11:5-15:79
 10        android:name="androidx.test.runner.AndroidJUnitRunner"
-10-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:11:22-76
+10-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:11:22-76
 11        android:functionalTest="false"
-11-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:14:22-52
+11-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:14:22-52
 12        android:handleProfiling="false"
-12-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:13:22-53
+12-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:13:22-53
 13        android:label="Tests for com.example.android.andymouse"
-13-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:15:22-77
+13-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:15:22-77
 14        android:targetPackage="com.example.android.andymouse" />
-14-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:12:22-75
+14-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:12:22-75
 15
 16    <application android:debuggable="true" >
-16-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:7:5-9:19
-16-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:7:18-43
+16-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:7:5-9:19
+16-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:7:18-43
 17        <uses-library android:name="android.test.runner" />
-17-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:8:9-60
-17-->/home/amit666/Desktop/GitHubProj/AndyMouse-kWoC-1/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8673628219753509376.xml:8:23-57
+17-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:8:9-60
+17-->/home/akash/AndyMouse-kWoC/app/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger6224472704227180663.xml:8:23-57
 18    </application>
 19
 20</manifest>
