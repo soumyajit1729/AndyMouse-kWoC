@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/hello"
+    android:background="@drawable/i13"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
@@ -26,7 +26,7 @@
             android:layout_marginLeft="10.2dp"
 
             android:layout_weight="2"
-            android:background="#134d00"
+            android:background="#061306"
             >
 
             <TextView
@@ -62,7 +62,7 @@
             android:layout_marginRight="10.2dp"
 
         android:layout_weight="2"
-            android:background="#134d00"
+            android:background="#061306"
             >
 
 
@@ -105,28 +105,7 @@
         android:orientation="horizontal"
         android:layout_weight="2.5">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="20">
-            <Button
-                android:id="@+id/button_previous"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/button"
-                android:onClick="previousbutton"
-                android:text="@string/previous"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toTopOf="@+id/button_left"
-                app:layout_constraintEnd_toStartOf="@+id/button_start"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent" />
 
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -134,70 +113,13 @@
             android:orientation="horizontal"
             android:layout_weight="1">
 
-            <Button
-                android:id="@+id/button_next"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/button"
-                android:onClick="nextbutton"
-                android:text="@string/next"
-                android:textColor="#000000"
-                android:textColorLink="#00FF006F"
-                app:layout_constraintBaseline_toBaselineOf="@+id/button_stop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/button_stop" />
+
 
         </LinearLayout>
     </LinearLayout>
 
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="2.5">
-
-        <Button
-            android:id="@+id/button_left"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/button_shape2"
-            android:onClick="leftclick"
-            android:text="@string/left_click"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toTopOf="@+id/ip_addr"
-            app:layout_constraintEnd_toStartOf="@+id/button_right"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/button_right"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="60dp"
-            android:background="@drawable/button_shape2"
-            android:onClick="rightclick"
-            android:text="@string/right_click"
-            android:textColor="#ffffff"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_left"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_left" />
-
-
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -224,7 +146,23 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:orientation="horizontal"
-    android:layout_weight="1">
+    android:layout_weight="1.1">
+
+    <Button
+        android:id="@+id/button_previous"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/button"
+        android:onClick="previousbutton"
+        android:text="@string/previous"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_left"
+        app:layout_constraintEnd_toStartOf="@+id/button_start"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
     <Button
         android:id="@+id/button_start"
         android:layout_width="0dp"
@@ -255,7 +193,70 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/button_start"
         app:layout_constraintEnd_toStartOf="@+id/button_next"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_start" /></LinearLayout>
+        app:layout_constraintStart_toEndOf="@+id/button_start" />
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/button"
+        android:onClick="nextbutton"
+        android:text="@string/next"
+        android:textColor="#000000"
+        android:textColorLink="#00FF006F"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_stop" />
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+
+
+        <Button
+            android:id="@+id/button_left"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/button_shape2"
+            android:onClick="leftclick"
+            android:text="@string/left_click"
+            android:textColor="#ffffff"
+            app:layout_constraintBottom_toTopOf="@+id/ip_addr"
+            app:layout_constraintEnd_toStartOf="@+id/button_right"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_right"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/button_shape2"
+            android:onClick="rightclick"
+            android:text="@string/right_click"
+            android:textColor="#ffffff"
+            app:layout_constraintBaseline_toBaselineOf="@+id/button_left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_left" />
+
+
+
+    </LinearLayout>
 
 
     <LinearLayout
