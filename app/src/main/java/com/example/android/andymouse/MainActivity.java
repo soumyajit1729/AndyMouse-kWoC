@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,8 +14,11 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.KeyEvent;
+import android.view.Surface;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -67,10 +71,21 @@ public class MainActivity extends Activity {
 
             if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
                 float[] values = event.values;
-
-
-                textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(values[0] / values[2]));
-                textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(values[1] / values[2]));
+                Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+                int rotation = display.getRotation();
+                if (rotation == Surface.ROTATION_90) {
+                    textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(values[0] / values[2]));
+                    textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(-values[1] / values[2]));
+                } else if (rotation == Surface.ROTATION_0){
+                    textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(values[0] / values[2]));
+                    textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(values[1] / values[2]));
+                } else if (rotation == Surface.ROTATION_270) {
+                    textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(-values[0] / values[2]));
+                    textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(values[1] / values[2]));
+                } else {
+                    textView_sensor_X_acc.setText("" + new DecimalFormat("#.#####").format(-values[0] / values[2]));
+                    textView_sensor_Y_acc.setText("" + new DecimalFormat("#.#####").format(-values[1] / values[2]));
+                }
             }
             /*if (sensor.getType() == Sensor.TYPE_GYROSCOPE) {
                 float[] values2 = event.values;

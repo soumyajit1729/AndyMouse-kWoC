@@ -1,157 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/i13"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        >
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginLeft="10.2dp"
-
-            android:layout_weight="2"
-            android:background="#061306"
-            >
-
-            <TextView
-                android:id="@+id/xtilt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/x_tilt"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
-
-
-            <TextView
-                android:id="@+id/textView_sensor_X_acc"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:gravity="center"
-                android:text="@string/zero"
-                android:textColor="#ffffff"
-                android:textSize="18sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginRight="10.2dp"
-
-        android:layout_weight="2"
-            android:background="#061306"
-            >
-
-
-            <TextView
-                android:id="@+id/ytilt"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/y_tilt"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toTopOf="@+id/textView_sensor_Y_acc"
-                app:layout_constraintEnd_toEndOf="@+id/textView_sensor_Y_acc"
-                app:layout_constraintStart_toStartOf="@+id/textView_sensor_Y_acc" />
-
-
-        <TextView
-            android:id="@+id/textView_sensor_Y_acc"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@drawable/border"
-            android:text="@string/zero"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
-    </LinearLayout>
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="2.5">
-
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-
-
-        </LinearLayout>
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_weight=".5"
-        android:weightSum="3"
-        android:orientation="horizontal">
-
-
-        <EditText
-            android:id="@+id/ip_addr"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
-            android:ems="10"
-            android:hint="@string/ip_address"
-            android:importantForAutofill="no"
-            android:inputType="textPersonName"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff" />
-
-    </LinearLayout>
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:orientation="horizontal"
-    android:layout_weight="1.1">
+    <EditText
+        android:id="@+id/ip_addr"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="@string/ip_address"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#D6D6D6"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_previous"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="10dp"
@@ -163,17 +42,17 @@
         app:layout_constraintEnd_toStartOf="@+id/button_start"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button_start"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:background="@drawable/button_shape"
         android:onClick="onStart"
         android:text="@string/start"
-        android:textColor="#ffffff"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_previous"
         app:layout_constraintEnd_toStartOf="@+id/button_stop"
         app:layout_constraintHorizontal_bias="0.5"
@@ -181,7 +60,6 @@
 
     <Button
         android:id="@+id/button_stop"
-        android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -189,15 +67,16 @@
         android:background="@drawable/button_shape1"
         android:onClick="onStop"
         android:text="@string/stop"
-        android:textColor="#ffffff"
+        android:textColor="#FFFFFF"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_start"
         app:layout_constraintEnd_toStartOf="@+id/button_next"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_start" />
+
     <Button
         android:id="@+id/button_next"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginEnd="15dp"
@@ -211,89 +90,137 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/button_stop" />
-</LinearLayout>
 
+    <Button
+        android:id="@+id/button_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/button_shape2"
+        android:onClick="rightclick"
+        android:text="@string/right_click"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_left" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+    <Button
+        android:id="@+id/button_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_shape2"
+        android:onClick="leftclick"
+        android:text="@string/left_click"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/button_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        android:progress="25"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <Button
-            android:id="@+id/button_left"
+        <TextView
+            android:id="@+id/textView_sensor_X_acc"
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/button_shape2"
-            android:onClick="leftclick"
-            android:text="@string/left_click"
-            android:textColor="#ffffff"
-            app:layout_constraintBottom_toTopOf="@+id/ip_addr"
-            app:layout_constraintEnd_toStartOf="@+id/button_right"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView_sensor_Y_acc"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/button_right"
+        <TextView
+            android:id="@+id/textView_sensor_Y_acc"
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="60dp"
-            android:background="@drawable/button_shape2"
-            android:onClick="rightclick"
-            android:text="@string/right_click"
-            android:textColor="#ffffff"
-            app:layout_constraintBaseline_toBaselineOf="@+id/button_left"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:text="@string/zero"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_sensor_X_acc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_left" />
+            app:layout_constraintStart_toEndOf="@+id/textView_sensor_X_acc" />
 
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="0.9">
-
-        <SeekBar
-            android:id="@+id/seekBar"
+        <TextView
+            android:id="@+id/ytilt"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:progress="25"
-            android:layout_marginLeft="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_previous"
+            android:gravity="center"
+            android:text="@string/y_tilt"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/border"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/xtilt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/xtilt" />
 
+        <TextView
+            android:id="@+id/xtilt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/x_tilt"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/border"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView_sensor_X_acc"
+            app:layout_constraintEnd_toStartOf="@+id/ytilt"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
