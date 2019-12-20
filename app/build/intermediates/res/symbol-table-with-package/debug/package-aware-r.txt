@@ -631,10 +631,12 @@ drawable abc_vector_test
 drawable background
 drawable border
 drawable border1
+drawable border2
 drawable button
 drawable button_shape
 drawable button_shape1
 drawable button_shape2
+drawable button_shape3
 drawable hello
 drawable i13
 drawable i13_rs
@@ -656,6 +658,7 @@ drawable picka
 drawable pikachu
 drawable pikachuf
 drawable title
+drawable title_vertical
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -664,6 +667,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id accelerometer
 id action_bar
 id action_bar_activity_content
 id action_bar_container
@@ -705,10 +709,13 @@ id center_vertical
 id chains
 id checkbox
 id chronometer
+id cl
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id connect
 id constraintLayout
+id constraintLayout2
 id content
 id contentPanel
 id custom
@@ -736,9 +743,12 @@ id icon_group
 id ifRoom
 id image
 id imageView
+id imageView2
+id imageView3
+id imageView5
 id info
 id invisible
-id ip_addr
+id ip_address
 id italic
 id left
 id line1
@@ -757,6 +767,7 @@ id notification_main_column_container
 id packed
 id parent
 id parentPanel
+id password
 id percent
 id progress_circular
 id progress_horizontal
@@ -803,6 +814,7 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
 id textView_sensor_X_acc
 id textView_sensor_Y_acc
 id time
@@ -811,6 +823,7 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id touchpad
 id uniform
 id up
 id useLogo
@@ -852,7 +865,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_auth
 layout activity_main
+layout activity_touchpad
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big
@@ -904,10 +919,13 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string accelerometer
 string app_name
+string connect
 string ip_address
 string left_click
 string next
+string password
 string previous
 string right_click
 string search_menu_title
@@ -915,6 +933,7 @@ string start
 string status_bar_notification_info_overflow
 string stop
 string title
+string touchpad
 string x_tilt
 string y_tilt
 string zero
@@ -1079,6 +1098,7 @@ style Base_Widget_AppCompat_Spinner_Underlined
 style Base_Widget_AppCompat_TextView_SpinnerItem
 style Base_Widget_AppCompat_Toolbar
 style Base_Widget_AppCompat_Toolbar_Button_Navigation
+style MyEditTextTheme
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_ThemeOverlay_AppCompat

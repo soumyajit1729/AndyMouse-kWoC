@@ -22,7 +22,21 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.example.android.andymouse.MainActivity" >
+        <activity
+            android:name="com.example.android.andymouse.Touchpad"
+            android:parentActivityName="com.example.android.andymouse.Auth" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Auth" />
+        </activity>
+        <activity
+            android:name="com.example.android.andymouse.MainActivity"
+            android:parentActivityName="com.example.android.andymouse.Auth" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Auth" />
+        </activity>
+        <activity android:name="com.example.android.andymouse.Auth" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

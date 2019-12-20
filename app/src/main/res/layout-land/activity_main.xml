@@ -7,35 +7,14 @@
     android:background="@drawable/i13_rs"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/ip_addr"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="@string/ip_address"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#D6D6D6"
-        app:layout_constraintBottom_toTopOf="@+id/button_previous"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
     <Button
         android:id="@+id/button_previous"
         android:layout_width="77dp"
         android:layout_height="77dp"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/button"
         android:onClick="previousbutton"
         android:text="@string/previous"
@@ -44,7 +23,7 @@
         app:layout_constraintEnd_toStartOf="@+id/button_start"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ip_addr" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <Button
         android:id="@+id/button_start"
@@ -150,7 +129,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/ip_addr"
+        app:layout_constraintBottom_toTopOf="@+id/button_previous"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -218,11 +197,11 @@
         android:id="@+id/imageView"
         android:layout_width="698dp"
         android:layout_height="0dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         android:src="@drawable/title"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
