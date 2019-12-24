@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -57,10 +58,10 @@ public class MainActivity extends Activity {
     TextView textView_sensor_X_acc;
     TextView textView_sensor_Y_acc;
     SeekBar seekBar;
+    String ip_address;
     //TextView textView_sensor_X_gyro;
    // TextView textView_sensor_Y_gyro;
    // TextView textView_sensor_Z_gyro;
-    EditText ip_address;
     Button leftclick,rightclick;
     List list,list2;
 
@@ -197,10 +198,12 @@ public class MainActivity extends Activity {
         textView_sensor_X_acc = (TextView)findViewById(R.id.textView_sensor_X_acc);
         textView_sensor_Y_acc= (TextView)findViewById(R.id.textView_sensor_Y_acc);
 
-        ip_address=(EditText)findViewById(R.id.ip_addr);
 
         leftclick = findViewById(R.id.button_left);
         rightclick = findViewById(R.id.button_right);
+
+        Intent intent = getIntent();
+        ip_address = intent.getStringExtra("ip_address");
 
 
         list = sm.getSensorList(Sensor.TYPE_ACCELEROMETER);
@@ -337,21 +340,10 @@ public class MainActivity extends Activity {
 
     }
 
-    public void send(View view) {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-        // perform HTTP POST request
-        String ip=ip_address.getText().toString();
-            //new HTTPAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
-            //new HTTPAsyncTask().execute(ip);//"http://10.146.121.148:8080/sensor";
-           // new HTTPAsyncTask().execute("http://10.146.85.93:8080/sensor");
-            //new HTTPAsyncTask().execute("http://10.146.94.129:8080/sensor");
-
-            new HTTPAsyncTask().execute("http://"+ip+":8080/sensor");
-    }
     public void send_loop() {
+        String ip = ip_address;
         // Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         // perform HTTP POST request
-        String ip = ip_address.getText().toString();
         //new HTTPAsyncTask().execute("http://hmkcode.appspot.com/jsonservlet");
         // new HTTPAsyncTask().execute("http://10.146.94.129:8080/sensor");
         new HTTPAsyncTask().execute("http://" + ip + ":8080/sensor");//"http://10.145.170.91:8080/sensor";

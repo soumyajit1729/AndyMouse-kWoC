@@ -11,4 +11,8 @@
     <string name="next">Next</string>
     <string name="left_click">Left Click</string>
     <string name="right_click">Right Click</string>
+    <string name="password">Enter Password</string>
+    <string name="connect">Connect</string>
+    <string name="accelerometer">Accelerometer</string>
+    <string name="touchpad">Touchpad</string>
 </resources>

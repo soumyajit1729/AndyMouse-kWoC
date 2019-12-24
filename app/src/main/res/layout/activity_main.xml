@@ -7,26 +7,6 @@
     android:background="@drawable/i13"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/ip_addr"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="15dp"
-        android:ems="10"
-        android:hint="@string/ip_address"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#D6D6D6"
-        app:layout_constraintBottom_toTopOf="@+id/button_previous"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/button_previous"
         android:layout_width="77dp"
