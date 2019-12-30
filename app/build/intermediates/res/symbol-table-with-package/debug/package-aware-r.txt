@@ -717,6 +717,7 @@ id collapseActionView
 id connect
 id constraintLayout
 id constraintLayout2
+id constraintLayout3
 id content
 id contentPanel
 id custom
@@ -746,6 +747,7 @@ id image
 id imageView
 id imageView2
 id imageView3
+id imageView4
 id imageView5
 id info
 id invisible
@@ -867,6 +869,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_auth
+layout activity_buttons
 layout activity_main
 layout activity_touchpad
 layout notification_action

@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 public class Auth extends AppCompatActivity {
 
     EditText ip_address, password;
-    Button connect, touchpad, accelerometer;
+    Button connect;
     boolean isConnected = false;
     int flag = 0;
     String Url;
@@ -43,8 +43,6 @@ public class Auth extends AppCompatActivity {
         ip_address = findViewById(R.id.ip_address);
         password = findViewById(R.id.password);
         connect = findViewById(R.id.connect);
-        touchpad = findViewById(R.id.touchpad);
-        accelerometer = findViewById(R.id.accelerometer);
 
         connect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +64,9 @@ public class Auth extends AppCompatActivity {
                     }
                     if (flag == 1) {
                         Toast.makeText(Auth.this, "Connected", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(Auth.this, Buttons.class);
+                        intent.putExtra("ip_address", ip_address.getText().toString());
+                        startActivity(intent);
                     } else {
                         Toast.makeText(Auth.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                     }
@@ -74,34 +75,6 @@ public class Auth extends AppCompatActivity {
                 }
             }
         });
-
-        accelerometer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (flag == 1) {
-                    Intent intent = new Intent(Auth.this, MainActivity.class);
-                    intent.putExtra("ip_address", ip_address.getText().toString());
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(Auth.this, "Not Connected", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
-        touchpad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (flag == 1) {
-                    Intent intent = new Intent(Auth.this, Touchpad.class);
-                    intent.putExtra("ip_address", ip_address.getText().toString());
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(Auth.this, "Not Connected", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
 
     }
 

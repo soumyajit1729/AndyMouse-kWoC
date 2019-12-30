@@ -13,21 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Touchpad"
-                  android:parentActivityName=".Auth">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Auth" />
-        </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".Buttons"
             android:parentActivityName=".Auth">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Auth" />
         </activity>
+        <activity
+            android:name=".Touchpad"
+            android:parentActivityName=".Buttons">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Buttons" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".Buttons">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Buttons" />
+        </activity>
         <activity android:name=".Auth">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
