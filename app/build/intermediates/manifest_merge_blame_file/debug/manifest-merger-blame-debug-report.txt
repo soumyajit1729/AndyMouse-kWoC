@@ -18,7 +18,7 @@
 12-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:6:22-76
 13
 14    <application
-14-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:8:5-35:19
+14-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:8:5-44:19
 15        android:allowBackup="true"
 15-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:9:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -38,45 +38,58 @@
 24        android:usesCleartextTraffic="true" >
 24-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:15:9-44
 25        <activity
-25-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:16:9-21:20
-26            android:name="com.example.android.andymouse.Touchpad"
-26-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:16:19-43
+25-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:16:9-22:20
+26            android:name="com.example.android.andymouse.Buttons"
+26-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:17:13-36
 27            android:parentActivityName="com.example.android.andymouse.Auth" >
-27-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:17:19-53
+27-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:18:13-47
 28            <meta-data
-28-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:18:13-20:41
+28-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:19:13-21:41
 29                android:name="android.support.PARENT_ACTIVITY"
-29-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:19:17-63
+29-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:17-63
 30                android:value=".Auth" />
-30-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:17-38
+30-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:17-38
 31        </activity>
 32        <activity
-32-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:22:9-27:20
-33            android:name="com.example.android.andymouse.MainActivity"
-33-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:22:19-47
-34            android:parentActivityName="com.example.android.andymouse.Auth" >
-34-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:23:13-47
+32-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:23:9-29:20
+33            android:name="com.example.android.andymouse.Touchpad"
+33-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:24:13-37
+34            android:parentActivityName="com.example.android.andymouse.Buttons" >
+34-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:25:13-50
 35            <meta-data
-35-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:18:13-20:41
+35-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:19:13-21:41
 36                android:name="android.support.PARENT_ACTIVITY"
-36-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:19:17-63
-37                android:value=".Auth" />
-37-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:17-38
+36-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:17-63
+37                android:value=".Buttons" />
+37-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:17-38
 38        </activity>
-39        <activity android:name="com.example.android.andymouse.Auth" >
-39-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:28:9-34:20
-39-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:28:19-39
-40            <intent-filter>
-40-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:29:13-33:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:30:17-68
-41-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:30:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:32:17-77
-43-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:32:27-74
-44            </intent-filter>
+39        <activity
+39-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:30:9-36:20
+40            android:name="com.example.android.andymouse.MainActivity"
+40-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:31:13-41
+41            android:parentActivityName="com.example.android.andymouse.Buttons" >
+41-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:32:13-50
+42            <meta-data
+42-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:19:13-21:41
+43                android:name="android.support.PARENT_ACTIVITY"
+43-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:20:17-63
+44                android:value=".Buttons" />
+44-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:21:17-38
 45        </activity>
-46    </application>
-47
-48</manifest>
+46        <activity android:name="com.example.android.andymouse.Auth" >
+46-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:37:9-43:20
+46-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:37:19-39
+47            <intent-filter>
+47-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:38:13-42:29
+48                <action android:name="android.intent.action.MAIN" />
+48-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:39:17-69
+48-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:39:25-66
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:41:17-77
+50-->/home/akash/AndyMouse-kWoC/app/src/main/AndroidManifest.xml:41:27-74
+51            </intent-filter>
+52        </activity>
+53    </application>
+54
+55</manifest>

@@ -1,4 +1,4 @@
-#Tue Dec 24 12:23:09 IST 2019
+#Mon Dec 30 17:26:55 IST 2019
 base.0=/home/akash/AndyMouse-kWoC/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

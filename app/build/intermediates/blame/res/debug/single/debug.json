@@ -928,6 +928,10 @@
         "source": "/home/akash/AndyMouse-kWoC/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "/home/akash/AndyMouse-kWoC/app/build/intermediates/res/merged/debug/layout_activity_buttons.xml.flat",
+        "source": "/home/akash/AndyMouse-kWoC/app/src/main/res/layout/activity_buttons.xml"
+    },
+    {
         "merged": "/home/akash/AndyMouse-kWoC/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "/home/akash/.gradle/caches/transforms-2/files-2.1/697f71c0c12135256cbfe98df498a7e4/appcompat-1.0.2/res/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
     },
@@ -1066,6 +1070,10 @@
     {
         "merged": "/home/akash/AndyMouse-kWoC/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "/home/akash/.gradle/caches/transforms-2/files-2.1/697f71c0c12135256cbfe98df498a7e4/appcompat-1.0.2/res/drawable-xhdpi-v4/abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "/home/akash/AndyMouse-kWoC/app/build/intermediates/res/merged/debug/layout-land_activity_buttons.xml.flat",
+        "source": "/home/akash/AndyMouse-kWoC/app/src/main/res/layout-land/activity_buttons.xml"
     },
     {
         "merged": "/home/akash/AndyMouse-kWoC/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",

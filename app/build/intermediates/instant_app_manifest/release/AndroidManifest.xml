@@ -22,18 +22,25 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.example.android.andymouse.Touchpad"
+            android:name="com.example.android.andymouse.Buttons"
             android:parentActivityName="com.example.android.andymouse.Auth" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Auth" />
         </activity>
         <activity
-            android:name="com.example.android.andymouse.MainActivity"
-            android:parentActivityName="com.example.android.andymouse.Auth" >
+            android:name="com.example.android.andymouse.Touchpad"
+            android:parentActivityName="com.example.android.andymouse.Buttons" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Auth" />
+                android:value=".Buttons" />
+        </activity>
+        <activity
+            android:name="com.example.android.andymouse.MainActivity"
+            android:parentActivityName="com.example.android.andymouse.Buttons" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Buttons" />
         </activity>
         <activity android:name="com.example.android.andymouse.Auth" >
             <intent-filter>
